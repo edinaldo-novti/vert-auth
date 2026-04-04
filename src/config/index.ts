@@ -57,6 +57,14 @@ export const authConfigSchema = z.object({
       }),
     )
     .default([]),
+
+  // JWT
+  jwtAlgorithm: z.enum(["RS256", "ES256", "EdDSA"]).default("ES256"),
+  jwtIssuer: z.string().default("vert-auth"),
+  jwtAudience: z.string().default("vert-app"),
+  jwtAccessTokenExpiry: z.string().default("15m"),
+  jwtRefreshTokenExpiry: z.string().default("7d"),
+  jwtRotateRefreshTokens: z.boolean().default(true),
 });
 
 export type AuthConfig = z.infer<typeof authConfigSchema>;

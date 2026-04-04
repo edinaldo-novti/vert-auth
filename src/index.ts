@@ -148,8 +148,38 @@ export {
   unauthorizedResponse,
   sessionIdFromCookie,
   rememberTokenFromCookie,
+  jwtAuthMiddleware,
+  requireJwtAuth,
   type AuthMiddlewareOptions,
+  type JwtAuthMiddlewareOptions,
+  type JwtAuthResult,
 } from "./middleware";
+
+// ─── JWT ──────────────────────────────────────────────────────────────────
+export {
+  generateJwtKeyPair,
+  exportKeyPairToJwk,
+  importKeyPairFromJwk,
+  signAccessToken,
+  signRefreshToken,
+  signTokenPair,
+  verifyAccessToken,
+  verifyRefreshToken,
+  refreshTokens,
+  revokeAccessToken,
+  revokeRefreshToken,
+  extractBearerToken,
+  decodeTokenUnsafe,
+  type JwtAlgorithm,
+  type JwtConfig,
+  type JwtKeyPair,
+  type JwtTokens,
+  type JwtAccessPayload,
+  type JwtRefreshPayload,
+  type TokenBlacklist,
+  type VerifyOptions,
+  type RefreshResult,
+} from "./jwt";
 
 // ─── Utils ────────────────────────────────────────────────────────────────
 export { generateToken, hashToken, secureCompare } from "./utils";
